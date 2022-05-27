@@ -135,43 +135,44 @@
                         <goals>
                             <goal>generate</goal>
                         </goals>
-                        <configuration>
-                            <!--Insert your DB configuration-->
-                            <jdbc>
-                                <driver>org.postgresql.Driver</driver>
-                                <url>jdbc:postgresql://localhost:5432/stock_depot</url>
-                                <user>postgres</user>
-                                <password>pegasus</password>
-                            </jdbc>
-                            <generator>
-                                <database>
-                                    <name>
-                                        org.jooq.meta.postgres.PostgresDatabase
-                                    </name>
-                                    <includes>.*</includes>
-                                    <excludes></excludes>
-                                    <inputSchema>public</inputSchema>
-                                </database>
-                                <generate>
-                                    <pojos>true</pojos>
-                                    <pojosEqualsAndHashCode>
-                                        true
-                                    </pojosEqualsAndHashCode>
-                                    <javaTimeTypes>true</javaTimeTypes>
-                                    <fluentSetters>true</fluentSetters>
-                                </generate>
-                                <target>
-                                    <packageName>
-                                        domain.depotowner
-                                    </packageName>
-                                    <directory>
-                                        target/generated-sources/jooq
-                                    </directory>
-                                </target>
-                            </generator>
-                        </configuration>
+
                     </execution>
+
                 </executions>
+                <configuration>
+                    <!--Insert your DB configuration-->
+                    <jdbc>
+                        <driver>org.postgresql.Driver</driver>
+                        <url>jdbc:postgresql://localhost:5432/stock_depot</url>
+                        <user>postgres</user>
+                        <password>pegasus</password>
+                    </jdbc>
+                    <generator>
+                        <database>
+                            <name>
+                                org.jooq.meta.postgres.PostgresDatabase
+                            </name>
+                            <includes>.*</includes>
+                            <inputSchema>public</inputSchema>
+                        </database>
+                        <generate>
+                            <pojos>true</pojos>
+                            <pojosEqualsAndHashCode>
+                                true
+                            </pojosEqualsAndHashCode>
+                            <javaTimeTypes>true</javaTimeTypes>
+                            <fluentSetters>true</fluentSetters>
+                        </generate>
+                        <target>
+                            <packageName>
+                                domain.depotowner
+                            </packageName>
+                            <directory>
+                                target/generated-sources/jooq
+                            </directory>
+                        </target>
+                    </generator>
+                </configuration>
             </plugin>
 
         </plugins>

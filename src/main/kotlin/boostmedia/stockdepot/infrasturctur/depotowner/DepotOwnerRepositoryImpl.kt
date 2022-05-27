@@ -2,7 +2,6 @@ package boostmedia.stockdepot.infrasturctur.depotowner
 
 import boostmedia.stockdepot.domain.depotowner.DepotOwnerRepository
 import domain.depotowner.Tables
-import boostmedia.stockdepot.infrasturctur.depotowner.DepotOwnerDto
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
 
