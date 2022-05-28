@@ -19,7 +19,6 @@ class DepotOwnerRepositoryImpl(val context: DSLContext) : DepotOwnerRepository {
             .execute()
         return context.lastID().intValueExact();
     }
-
     override fun getDepotOwnerById(id: Int): DepotOwner {
         val depotOwnerFromDB =
             context.selectFrom(DEPOT_OWNER).where(DEPOT_OWNER.DEPOT_OWNER_ID.eq(id))
