@@ -1,0 +1,41 @@
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="myFormModel" (submit)="submit()">
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Firstname
+        </mat-label>
+        <input matInput formControlName="firstName" type="text">
+        <!--  <mat-error *ngIf="myFormModel.controls['firstName'].touched && myFormModel.controls['firstName'].invalid">
+          <span *ngIf="myFormModel.controls['firstName'].errors?.required">This field is mandatory.</span>
+        </mat-error> -->
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Lastname
+        </mat-label>
+        <input matInput formControlName="lastName" type="text">
+        <!--  <mat-error *ngIf="myFormModel.controls['lastName'].touched && myFormModel.controls['lastName'].invalid">
+            <span *ngIf="myFormModel.controls['lastName'].errors?.required">This field is mandatory.</span>
+          </mat-error> -->
+      </mat-form-field>
+
+      <!--   <mat-form-field class="form-field" appearance="outline">
+          <mat-label> E-mail
+          </mat-label>
+          <input matInput formControlName="email" required>
+              <mat-error *ngIf="myFormModel.controls['email'].touched && myFormModel.controls['email'].invalid">
+                  <span *ngIf="myFormModel.controls['email'].errors.required">This field is mandatory.</span>
+                   <span *ngIf="myFormModel.controls['email'].errors.pattern">This field is invalid.</span>
+                 </mat-error>
+      </mat-form-field>
+-->
+      <button mat-raised-button color="primary" type="submit">Create</button>
+
+
+
+    </form>
+
+  </div>
+
+</div>
