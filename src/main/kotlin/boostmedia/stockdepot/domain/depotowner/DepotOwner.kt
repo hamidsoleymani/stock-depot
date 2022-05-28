@@ -1,3 +1,3 @@
 package boostmedia.stockdepot.domain.depotowner
-class DepotOwner(val firstName: String, val lastName: String, val id: String) {
+class DepotOwner(val firstName: String, val lastName: String, val id: Int?) {
 }
