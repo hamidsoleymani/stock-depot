@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class DepotOwnerService(val depotOwnerRepository: DepotOwnerRepository) {
-    fun createDepotOwner(depotOwner: DepotOwner) {
-        depotOwnerRepository.createDepotOwner(depotOwner)
+    fun createDepotOwner(depotOwner: DepotOwner): Int {
+       return depotOwnerRepository.createDepotOwner(depotOwner)
+    }
+
+    fun getDepotOwnerById( id: Int): DepotOwner{
+       return depotOwnerRepository.getDepotOwnerById(id)
     }
 }
