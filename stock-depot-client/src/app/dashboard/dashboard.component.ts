@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DepotOwnerService } from "../depot-owner/DepotOwnerService";
 import { DepotOwnerView } from "../../share/be_to_fe";
+import { Router } from "@angular/router";
+import { DepotService } from "../depot/DepotService";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,11 +10,28 @@ import { DepotOwnerView } from "../../share/be_to_fe";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
- depotOwnerView: DepotOwnerView | undefined;
-  constructor(private _depotOwnerService: DepotOwnerService) { }
+  depotOwnerView: DepotOwnerView | undefined;
+  showStockForm = false;
+  showDepotForm = false;
 
-  ngOnInit(): void {
-   this.depotOwnerView = this._depotOwnerService.depotOwnerView;
+  constructor(private _depotOwnerService: DepotOwnerService,
+              private _router: Router,
+              private _depotService: DepotService){
   }
 
+  ngOnInit(): void{
+    this.depotOwnerView = this._depotOwnerService.fromLocalStorage()
+  }
+
+  onShowDepotForm(){
+    this.showDepotForm = true;
+  }
+
+  onShowStockForm(){
+    this.showStockForm = true;
+  }
+
+  depotCreated(){
+    this.showStockForm = true;
+  }
 }

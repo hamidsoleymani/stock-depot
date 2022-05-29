@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.24.612 on 2022-05-28 13:39:09.
+// Generated using typescript-generator version 2.24.612 on 2022-05-29 20:29:50.
 
 export class DepotView {
     depotName?: string;
@@ -12,7 +12,7 @@ export class DepotView {
 export class DepotOwnerView {
     firstName?: string;
     lastName?: string;
-    id?: string | null;
+    id?: number | null;
 }
 
 export class DividendView {

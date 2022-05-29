@@ -15,12 +15,16 @@ import { HttpClientModule } from "@angular/common/http";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { FormModule } from "./form/form.module";
+import { DepotComponent } from "./depot/depot.component";
+import { StockComponent } from "./stock/stock.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DepotOwnerComponent,
-    DashboardComponent
+    DashboardComponent,
+    DepotComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,

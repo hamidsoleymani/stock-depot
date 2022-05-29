@@ -13,7 +13,6 @@ export class DepotOwnerService {
   url: string = 'http://localhost:8080/api/stock-depot';
 
   constructor(private _http: HttpClient){
-    alert("ff")
   }
 
   createDepotOwner(depotOwnerView: DepotOwnerView): Observable<number>{
@@ -28,5 +27,10 @@ export class DepotOwnerService {
 
   setDepotOwner(depotOwnerView: DepotOwnerView){
     this.depotOwnerView = depotOwnerView;
+  }
+
+  fromLocalStorage(): DepotOwnerView{
+   // @ts-ignore
+    return <DepotOwnerView>JSON.parse(localStorage.getItem("depotOwnerView"));
   }
 }

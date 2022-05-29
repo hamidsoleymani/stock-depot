@@ -31,6 +31,7 @@ export class DepotOwnerComponent implements OnInit {
       this._depotOwnerService.getDepotOwnerById(idOFNewCreatedDepotOwner).subscribe(
         depotOwnerView => {this._depotOwnerService.setDepotOwner(depotOwnerView)
           this._router.navigate(["/dashboard"]);
+          localStorage.setItem("depotOwnerView", JSON.stringify(depotOwnerView))
         })
       )
 

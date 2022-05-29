@@ -1,7 +1,17 @@
 
 <mat-card>
-  <mat-card-title>{{depotOwnerView?.firstName}} {{depotOwnerView?.lastName}}</mat-card-title>
+  <mat-card-title>{{depotOwnerView?.firstName}} - {{depotOwnerView?.lastName}}</mat-card-title>
   <mat-card-actions>
-    <button mat-button>Add Depot</button>
+    <div>
+      <button mat-button (click)="onShowDepotForm()">Add New Depot</button>
+      <span *ngIf=showStockForm>
+    <button mat-button (click)="onShowStockForm()">Add Stocks</button>
+    </span>
+    </div>
   </mat-card-actions>
 </mat-card>
+
+
+<div *ngIf=showDepotForm>
+  <app-depot (onDepotCreated)="depotCreated()"></app-depot>
+</div>
