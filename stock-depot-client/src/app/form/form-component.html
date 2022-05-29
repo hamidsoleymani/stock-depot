@@ -1,0 +1,10 @@
+<div class="container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <div>  Country: <input type="text" formControlName="country"><br></div>
+    <div>   City: <input type="text" formControlName="city"></div>
+    <button type="submit">Submit</button>
+  </form>
+  <button (click)="reset()">reset</button>
+  <button (click)="set()">set</button>
+  <button (click)="update()">update</button>
+</div>

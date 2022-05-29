@@ -21,7 +21,8 @@ class DepotOwnerRepositoryImpl(val context: DSLContext) : DepotOwnerRepository {
     }
     override fun getDepotOwnerById(id: Int): DepotOwner {
         val depotOwnerFromDB =
-            context.selectFrom(DEPOT_OWNER).where(DEPOT_OWNER.DEPOT_OWNER_ID.eq(id))
+            context.selectFrom(DEPOT_OWNER)
+                .where(DEPOT_OWNER.DEPOT_OWNER_ID.eq(id))
                 .fetchOneInto(DepotOwner::class.java)
         return depotOwnerFromDB!!;
 

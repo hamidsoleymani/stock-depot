@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { DepotOwnerService } from "./DepotOwnerService";
-import { DepotOwnerView } from "../../share/be_to_fe";
 
 @Component({
   selector: 'app-depot-owner',
@@ -25,12 +24,15 @@ export class DepotOwnerComponent implements OnInit {
   }
 
   submit(){
-    this._router.navigate(["/dashboard"]);
+
     let depotOwnerView = {"firstName": this.myFormModel.get('firstName')?.value, "lastName": this.myFormModel.get('lastName')?.value}
     this._depotOwnerService.createDepotOwner(depotOwnerView)
       .subscribe(idOFNewCreatedDepotOwner =>
       this._depotOwnerService.getDepotOwnerById(idOFNewCreatedDepotOwner).subscribe(
-        depotOwnerView => alert(depotOwnerView))
+        depotOwnerView => {this._depotOwnerService.setDepotOwner(depotOwnerView)
+          this._router.navigate(["/dashboard"]);
+        })
       )
+
   }
 }

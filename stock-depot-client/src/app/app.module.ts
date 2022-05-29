@@ -12,6 +12,9 @@ import { RouterModule } from "@angular/router";
 import { routing } from "./app-routing.module";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from "@angular/common/http";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { FormModule } from "./form/form.module";
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { HttpClientModule } from "@angular/common/http";
     MatButtonModule,
     RouterModule,
     HttpClientModule,
-    routing
+    routing,
+    MatCardModule,
+    MatIconModule,
+    FormModule
   ],
   providers:[{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

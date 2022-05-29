@@ -15,7 +15,7 @@ class DepotOwnerController(val depotOwnerService: DepotOwnerService) {
     @GetMapping("/api/stock-depot/id/{id}")
     fun getDepotOwnerById(@PathVariable id: Int): DepotOwnerView {
         val depotOwnerFromDb = depotOwnerService.getDepotOwnerById(id);
-        val depotOwnerView = DepotOwnerView(depotOwnerFromDb.firstName, depotOwnerFromDb.lastName, depotOwnerFromDb.id);
+        val depotOwnerView = DepotOwnerView(depotOwnerFromDb.firstName, depotOwnerFromDb.lastName, depotOwnerFromDb.depotOwnerId);
         return depotOwnerView
     }
 }
