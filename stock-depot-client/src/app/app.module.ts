@@ -17,6 +17,9 @@ import { MatIconModule } from "@angular/material/icon";
 import { FormModule } from "./form/form.module";
 import { DepotComponent } from "./depot/depot.component";
 import { StockComponent } from "./stock/stock.component";
+import {StockFormDialog} from "./stock/StockFormDialog";
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { StockComponent } from "./stock/stock.component";
     DepotOwnerComponent,
     DashboardComponent,
     DepotComponent,
-    StockComponent
+    StockComponent,
+    StockFormDialog
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,8 @@ import { StockComponent } from "./stock/stock.component";
     routing,
     MatCardModule,
     MatIconModule,
-    FormModule
+    FormModule,
+    MatDialogModule
   ],
   providers:[{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

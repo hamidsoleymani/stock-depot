@@ -2,12 +2,14 @@ package boostmedia.stockdepot.infrasturctur.stock
 
 import boostmedia.stockdepot.application.stock.StockService
 import boostmedia.stockdepot.domain.stock.Stock
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
+@CrossOrigin(origins = ["http://localhost:4200"])
 class StockController(val stockService: StockService) {
 
     @PostMapping("/api/stock-depot/new/stock")

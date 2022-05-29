@@ -1,6 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.24.612 on 2022-05-29 20:29:50.
+// Generated using typescript-generator version 2.24.612 on 2022-05-30 00:54:54.
 
 export class DepotView {
     depotName?: string;
@@ -30,7 +30,7 @@ export class StockView {
     isin?: string;
     stockExchangeBuy?: string;
     sockExchangeSell?: string | null;
-    buyDate?: Date;
+    buyDate?: Date | null;
     buyPrice?: number;
     sellDate?: Date | null;
     sellPrice?: number | null;

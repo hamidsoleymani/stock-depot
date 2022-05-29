@@ -25,10 +25,12 @@ export class DashboardComponent implements OnInit {
 
   onShowDepotForm(){
     this.showDepotForm = true;
+    this.showStockForm = false;
   }
 
   onShowStockForm(){
     this.showStockForm = true;
+    this.showDepotForm = false
   }
 
   depotCreated(){

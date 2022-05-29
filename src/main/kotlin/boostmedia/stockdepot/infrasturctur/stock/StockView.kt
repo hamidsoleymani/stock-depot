@@ -1,6 +1,7 @@
 package boostmedia.stockdepot.infrasturctur.stock
 
 import boostmedia.stockdepot.domain.dividend.Dividend
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 class StockView(val name: String,
@@ -9,9 +10,9 @@ class StockView(val name: String,
                 val isin: String,
                 val stockExchangeBuy: String,
                 val sockExchangeSell: String?= null,
-                val buyDate: LocalDateTime,
+                val buyDate: LocalDate?=null,
                 val buyPrice: Double,
-                val sellDate: LocalDateTime?,
+                val sellDate: LocalDate?,
                 val sellPrice: Double?,
                 val quantity: Int,
                 val currency: String,
