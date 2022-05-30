@@ -1,9 +1,8 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, Input, OnInit} from "@angular/core";
 import {FormBuilder} from "@angular/forms";
 import {DepotService} from "../depot/DepotService";
-import {DepotView} from "../../share/be_to_fe";
-import {MatDialog} from "@angular/material/dialog";
-import {StockFormDialog} from "./StockFormDialog";
+import { StockView} from "../../share/be_to_fe";
+import {StockService} from "./StockService";
 
 
 @Component({
@@ -12,32 +11,17 @@ import {StockFormDialog} from "./StockFormDialog";
 })
 export class StockComponent implements OnInit {
 
-  // @ts-ignore
-  depots: DepotView[];
-  showStockForm: boolean = false;
+  @Input() dataSource: StockView[];
+
+  displayedColumns : string[] = ['name', 'wkn', 'stockExchangeBuy', 'buyDate', 'quantity','currency'];
 
   constructor(fb: FormBuilder,
-              private _depotService: DepotService,
-              public dialog: MatDialog) {
-
-    // @ts-ignore
-    this._depotService.loadDepots().subscribe(
-      depots => this.depots = depots
-    )
+              private _depotService: DepotService, private _stockService: StockService) {
+    this._stockService.loadStocks()
   }
 
   ngOnInit(): void {
   }
 
-  addNewStock(depotId: number | null | undefined) {
-    this.showStockForm = true;
-    const dialogRef = this.dialog.open(StockFormDialog, {
-      width: '250px',
-      data: {'depotId': depotId},
-    });
 
-    dialogRef.afterClosed().subscribe(result => {
-
-    })
-  }
 }

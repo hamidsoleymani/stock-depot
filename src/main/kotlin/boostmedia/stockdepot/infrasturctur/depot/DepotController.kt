@@ -10,12 +10,13 @@ class DepotController(val depotService: DepotService) {
 
     @PostMapping("/api/stock-depot/new/depot")
     fun createDepotOwner(@RequestBody depotView: DepotView) {
-        val depot = Depot(depotView.depotName, depotView.brokerName, null, depotView.depotOwnerId)
+        val depot = Depot(depotView.depotName, depotView.brokerName, null, depotView.depotOwnerId, null)
         depotService.createDepot(depot)
     }
 
     @GetMapping("/api/stock-depot/depots/depotOwner/{id}")
-    fun loadDepotsByDepotOwnerId(@PathVariable id: Int): List<Depot> {
-      return  depotService.loadDepotsByDepotOwnerId(id);
+    fun loadDepotsByDepotOwnerId(@PathVariable id: Int): List<Depot>  { //TODO DepotView not Depot
+        val depotList: List<Depot> = depotService.loadDepotsByDepotOwnerId(id)
+        return depotList
     }
 }

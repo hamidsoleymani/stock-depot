@@ -26,7 +26,6 @@ export class DepotService {
   }
 
   save(stockView: StockView)  {
-    this._stockService.save(stockView)
-
+    this._stockService.save(stockView).subscribe(  )
   }
 }

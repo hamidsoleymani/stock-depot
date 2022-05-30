@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DepotOwnerService } from "../depot-owner/DepotOwnerService";
-import { DepotOwnerView } from "../../share/be_to_fe";
+import {DepotOwnerView} from "../../share/be_to_fe";
 import { Router } from "@angular/router";
 import { DepotService } from "../depot/DepotService";
 
@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   showStockForm = false;
   showDepotForm = false;
 
+
   constructor(private _depotOwnerService: DepotOwnerService,
               private _router: Router,
               private _depotService: DepotService){
@@ -21,6 +22,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void{
     this.depotOwnerView = this._depotOwnerService.fromLocalStorage()
+
   }
 
   onShowDepotForm(){

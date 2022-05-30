@@ -1,7 +1,7 @@
 version: '3'
 services:
   postgres:
-    container_name: container-postgresdb
+    container_name: stock-depot-container-postgresdb
     image: postgres
     hostname: postgres
     ports:

@@ -1,12 +1,13 @@
 /* tslint:disable */
 /* eslint-disable */
-// Generated using typescript-generator version 2.24.612 on 2022-05-30 00:54:54.
+// Generated using typescript-generator version 2.24.612 on 2022-05-30 22:23:20.
 
 export class DepotView {
     depotName?: string;
     brokerName?: string;
     depotId?: number | null;
     depotOwnerId?: number;
+    stockViews?: StockView[] | null;
 }
 
 export class DepotOwnerView {

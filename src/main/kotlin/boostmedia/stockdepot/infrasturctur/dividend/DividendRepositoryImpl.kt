@@ -10,13 +10,31 @@ import org.springframework.stereotype.Repository
 class DividendRepositoryImpl(val context: DSLContext) : DividendRepository {
     override fun createDividend(dividend: Dividend) {
 
-        context.insertInto(DIVIDEND,
+        context.insertInto(
+            DIVIDEND,
             DIVIDEND.WKN,
             DIVIDEND.DIVIDEND_DATE,
             DIVIDEND.CURRENCY,
             DIVIDEND.DEPOTID,
             DIVIDEND.DIVIDEND_AMOUNT
-        ).values(dividend.wkn, dividend.dividendDate,dividend.currency, dividend.depotId, dividend.dividend)
+        ).values(dividend.wkn, dividend.dividendDate, dividend.currency, dividend.depotId, dividend.dividend)
             .execute()
+    }
+
+    override fun getDividentsByDepotIdAndWkn(depotId: Int, wkn: String?): List<Dividend>? {
+        val dividends: MutableList<Dividend> = mutableListOf()
+
+        val fetchRecords = context.selectFrom(DIVIDEND)
+            .where(
+                DIVIDEND.DEPOTID.eq(depotId)
+                    .and(DIVIDEND.WKN.eq(wkn))
+            )
+            .fetch()
+
+        for (d in fetchRecords) {
+            val dividend = Dividend(d.dividendAmount, d.dividendDate, d.wkn, d.currency, d.depotid)
+            dividends.add(dividend)
+        }
+        return dividends
     }
 }
