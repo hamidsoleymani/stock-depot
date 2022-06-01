@@ -15,4 +15,8 @@ class DepotService(val depotRepository: DepotRepository) {
     fun loadDepotsByDepotOwnerId(id: Int): List<Depot>{
        return depotRepository.loadDepotsByDepotOwnerId(id)
     }
+
+    fun loadDepotById(id: Int): Depot {
+        return depotRepository.loadDepotById(id)
+    }
 }

@@ -19,4 +19,11 @@ class DepotController(val depotService: DepotService) {
         val depotList: List<Depot> = depotService.loadDepotsByDepotOwnerId(id)
         return depotList
     }
+
+    @GetMapping("/api/stock-depot/depot/{id}")
+    fun loadStocksByDepotId(@PathVariable id: Int): Depot  { //TODO DepotView not Depot
+        val depot: Depot = depotService.loadDepotById(id)
+        return depot
+    }
+
 }

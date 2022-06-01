@@ -7,7 +7,8 @@ import {StockService} from "./StockService";
 
 @Component({
   selector: 'app-stock',
-  templateUrl: 'stock.component.html'
+  templateUrl: 'stock.component.html',
+  styleUrls: ['stock.component.css'],
 })
 export class StockComponent implements OnInit {
 
@@ -16,7 +17,8 @@ export class StockComponent implements OnInit {
   displayedColumns : string[] = ['name', 'wkn', 'stockExchangeBuy', 'buyDate', 'quantity','currency'];
 
   constructor(fb: FormBuilder,
-              private _depotService: DepotService, private _stockService: StockService) {
+              private _depotService: DepotService,
+              private _stockService: StockService) {
     this._stockService.loadStocks()
   }
 

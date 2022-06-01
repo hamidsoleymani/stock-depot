@@ -33,6 +33,15 @@ class DepotRepositoryImpl(val context: DSLContext, val stockRepository: StockRep
         }
         return depos
     }
+
+    override fun loadDepotById(id: Int): Depot {
+        val depotR = context.selectFrom(DEPOT)
+            .where(DEPOT.DEPOT_ID.eq(id))
+            .fetchOne()
+        val stocksList = stockRepository.getStockByDepotId(id)
+        val depot = Depot(depotR?.depotName!!, depotR.brokerName, depotR.depotId, depotR.depotOwnerId, stocksList)
+        return depot
+    }
 }
 
 
